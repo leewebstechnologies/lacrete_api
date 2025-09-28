@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -16,20 +17,38 @@ class BlogController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'slug' => 'required|unique:blogs,slug',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $model = new Blog();
+        $model->title = $request->title;
+        $model->slug = $request->slug;
+        $model->desc = $request->desc;
+        $model->content = $request->content;
+        $model->status = $request->status;
+        $model->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Blog added successfully!'
+        ]);
+
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;
@@ -17,5 +18,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::get('logout', [AuthenticationController::class, 'logout']);
 
+    //Blog Routes
+    Route::post('blogs', [BlogController::class, 'store']);
+
 });
+
 
