@@ -20,6 +20,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     //Blog Routes
     Route::post('blogs', [BlogController::class, 'store']);
+    Route::get('blogs', [BlogController::class, 'index']);
+
+
 
 });
 

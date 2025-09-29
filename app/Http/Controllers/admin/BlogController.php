@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::orderBy('created_at','DESC')->get();
+
+         return response()->json([
+                'status' => true,
+                'data' => $blogs
+            ]);
     }
 
 
@@ -26,7 +32,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|unique:blogs,slug',
+            'slug' => 'required|unique:blogs,slug'
         ]);
 
         if ($validator->fails()) {
@@ -38,16 +44,19 @@ class BlogController extends Controller
 
         $model = new Blog();
         $model->title = $request->title;
-        $model->slug = $request->slug;
         $model->desc = $request->desc;
+        $model->slug = Str::slug($request->slug);
         $model->content = $request->content;
         $model->status = $request->status;
         $model->save();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Blog added successfully!'
-        ]);
+         return response()->json([
+                'status' => true,
+                'message' => 'Blog added successfully!'
+            ]);
+        //  else {
+
+        // }
 
     }
 
