@@ -13,7 +13,7 @@
                         <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="logo_light" height="24">
                     </span>
                 </a>
-                <a href="index.html" class="logo logo-dark">
+                <a href="{{ route('dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo_sm" height="22">
                     </span>
@@ -33,13 +33,6 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
-
-                <!-- <li>
-                    <a href="landing.html" target="_blank">
-                        <i data-feather="globe"></i>
-                        <span> Landing </span>
-                    </a>
-                </li> -->
 
                 <li class="menu-title">Pages</li>
 
@@ -62,18 +55,36 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarVideo" data-bs-toggle="collapse">
+                    <a href="#video" data-bs-toggle="collapse">
                         <i data-feather="video"></i>
                         <span>Manage Video</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarVideo">
+                    <div class="collapse" id="video">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('all.videos') }}" class="tp-link">All Videos</a>
                             </li>
                             <li>
                                 <a href="{{ route('add.video') }}" class="tp-link">Add Video</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#testomonial" data-bs-toggle="collapse">
+                        <i data-feather="message-circle"></i>
+                        <span>Manage Testomonial</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="testomonial">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.testimonials') }}" class="tp-link">All Testimonials</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.testimonial') }}" class="tp-link">Add Testimonial</a>
                             </li>
                         </ul>
                     </div>
