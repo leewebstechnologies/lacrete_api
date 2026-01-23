@@ -7,7 +7,6 @@ use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
-use PHPUnit\Metadata\Test;
 
 class TestimonialController extends Controller
 {

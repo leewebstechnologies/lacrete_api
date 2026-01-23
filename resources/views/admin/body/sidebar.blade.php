@@ -90,6 +90,42 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#portfolio" data-bs-toggle="collapse">
+                        <i data-feather="briefcase"></i>
+                        <span>Manage Portfolio</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="portfolio">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.portfolios') }}" class="tp-link">All Portfolios</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.portfolio') }}" class="tp-link">Add Portfolio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#welcome" data-bs-toggle="collapse">
+                        <i data-feather="smile"></i>
+                        <span>Manage Welcome</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="welcome">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.welcome') }}" class="tp-link">All Welcome</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.welcome') }}" class="tp-link">Add Welcome</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>

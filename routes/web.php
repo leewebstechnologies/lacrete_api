@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\HeroController;
+use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\VideoController;
+use App\Http\Controllers\Backend\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,8 +57,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
    });
 
+   Route::controller(PortfolioController::class)->group(function() {
+    Route::get('/all/portfolios', 'AllPortfolios')->name('all.portfolios');
+    Route::get('/add/portfolio', 'AddPortfolio')->name('add.portfolio');
+    Route::post('/store/portfolio', 'StorePortfolio')->name('store.portfolio');
+    Route::get('/edit/portfolio/{id}', 'EditPortfolio')->name('edit.portfolio');
+    Route::post('/update/portfolio', 'UpdatePortfolio')->name('update.portfolio');
+    Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
+   });
 
-
+    Route::controller(WelcomeController::class)->group(function() {
+    Route::get('/all/welcome', 'AllWelcome')->name('all.welcome');
+    Route::get('/add/welcome', 'AddWelcome')->name('add.welcome');
+    Route::post('/store/welcome', 'StoreWelcome')->name('store.welcome');
+    Route::get('/edit/welcome/{id}', 'EditWelcome')->name('edit.welcome');
+    Route::post('/update/welcome', 'UpdateWelcome')->name('update.welcome');
+    Route::get('/delete/welcome/{id}', 'DeleteWelcome')->name('delete.welcome');
+   });
+   
 });
 
 
