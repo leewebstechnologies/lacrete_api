@@ -114,7 +114,4 @@ class HeroController extends Controller
 
     }
 
-
-
-
 }

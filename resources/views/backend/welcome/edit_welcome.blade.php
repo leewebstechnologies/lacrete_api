@@ -1,0 +1,78 @@
+@extends('admin.master')
+@section('admin')
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<div class="content">
+
+    <!-- Start Content-->
+    <div class="container-xxl">
+
+        <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+            <div class="flex-grow-1">
+                <h4 class="fs-18 fw-semibold m-0">Edit Welcome</h4>
+            </div>
+        </div>
+
+        <!-- Form Validation -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Edit Welcome</h5>
+                    </div><!-- end card header -->
+
+                    <div class="card-body">
+                        <form id="myForm" action="{{ route('update.welcome') }}" method="post" class="row g-3" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $welcome->id }}" />
+                            <div class="col-md-6 form-group">
+                                <label for="validationDefault01" class="form-label">Welcome Title</label>
+                                <input type="text" name="title" class="form-control" value="{{ $welcome->title }}">
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Save Changes</button>
+                            </div>
+                        </form>
+                    </div> <!-- end card-body -->
+                </div> <!-- end card-->
+            </div> <!-- end col -->
+
+    </div> <!-- container-fluid -->
+
+</div> <!-- content -->
+
+ <script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                title: {
+                    required : true,
+                },
+
+            },
+            messages :{
+                title: {
+                    required : 'Please Enter Title',
+                },
+
+            },
+            errorElement : 'span',
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+
+</script>
+
+@endsection
