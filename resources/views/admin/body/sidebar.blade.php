@@ -126,6 +126,24 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#blog" data-bs-toggle="collapse">
+                        <i data-feather="briefcase"></i>
+                        <span>Manage Blog</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="blog">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.blogs') }}" class="tp-link">All Blogs</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.blog') }}" class="tp-link">Add Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>
