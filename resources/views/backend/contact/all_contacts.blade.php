@@ -8,12 +8,12 @@
 
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">All Sliders</h4>
+                <h4 class="fs-18 fw-semibold m-0">All Contacts</h4>
             </div>
 
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
-                    <a href="{{ route('add.hero') }}" class="btn btn-primary">Add Hero</a>
+
                 </ol>
             </div>
         </div>
@@ -28,22 +28,24 @@
                             <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>Image</th>
-                                <th>Heading</th>
-                                <th>Description</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($hero as $key=> $item)
+                                @foreach ($contact as $key=> $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td><img src="{{ asset($item->image) }}" alt="" style="width: 70px; height: 40px;"></td>
-                                    <td>{{ $item->heading }}</td>
-                                    <td>{{ Str::limit($item->description, 50); }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->subject }}</td>
+                                    <td>{{ Str::limit($item->message, 250); }}</td>
                                     <td>
-                                        <a href="{{ route('edit.hero', $item->id) }}"class="btn btn-success btn-sm">Edit</a>
-                                        <a href="{{ route('delete.hero', $item->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                        <a href=""class="btn btn-success btn-sm">View</a>
+                                        <a href="" class="btn btn-danger btn-sm" id="delete">Delete</a>
                                     </td>
                                 </tr>
 

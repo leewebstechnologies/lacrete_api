@@ -11,7 +11,7 @@
 
                         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
                             <div class="flex-grow-1">
-                                <h4 class="fs-18 fw-semibold m-0">Edit Hero</h4>
+                                <h4 class="fs-18 fw-semibold m-0">About</h4>
                             </div>
                         </div>
 
@@ -20,31 +20,22 @@
                             <div class="col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="card-title mb-0">Edit Hero</h5>
+                                        <h5 class="card-title mb-0">About</h5>
                                     </div><!-- end card header -->
 
                                     <div class="card-body">
-                                        <form action="{{ route('update.hero') }}" method="post" class="row g-3" enctype="multipart/form-data">
+                                        <form action="{{ route('update.about') }}" method="post" class="row g-3" enctype="multipart/form-data">
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $hero->id }}">
-                                            <div class="col-md-6">
-                                                <label for="validationDefault01" class="form-label">Hero Heading</label>
-                                                <input type="text" name="heading" class="form-control" value="{{ $hero->heading }}">
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label for="validationDefault01" class="form-label">Hero Description</label>
-                                                <textarea class="form-control" name="description" placeholder="Required example textarea">{{ $hero->description }}</textarea>
-                                            </div>
+                                            <input type="hidden" name="id" value="{{ $about->id }}">
 
                                             <div class="col-md-6">
-                                                <label for="validationDefault01" class="form-label">Hero Image</label>
+                                                <label for="validationDefault01" class="form-label">Image</label>
                                                 <input type="file" name="image" class="form-control" id="image">
                                             </div>
 
                                             <div class="col-md-6">
-                                                 <img id="showImage" src="{{ asset($hero->image) }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
-                                            </div>
+                                                 <img id="showImage" src="{{ asset($about->image) }}" class="rounded-circle avatar-xxl img-thumbnail float-start" alt="image profile">
+                                            </div>                                          
 
                                             <div class="col-12">
                                                 <button class="btn btn-primary" type="submit">Save Changes</button>

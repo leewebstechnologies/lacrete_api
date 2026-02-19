@@ -144,40 +144,48 @@
                     </div>
                 </li>
 
-                <li class="menu-title mt-2">General</li>
-
-                <li>
-                    <a href="#sidebarBaseui" data-bs-toggle="collapse">
-                        <i data-feather="package"></i>
-                        <span> Components </span>
+                 <li>
+                    <a href="#siteSetting" data-bs-toggle="collapse">
+                        <i data-feather="settings"></i>
+                        <span>Site Setting </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarBaseui">
+                    <div class="collapse" id="siteSetting">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="ui-accordions.html" class="tp-link">Accordions</a>
+                                <a href="{{ route('site.setting') }}" class="tp-link">Site Setting</a>
                             </li>
-                            <li>
-                                <a href="ui-alerts.html" class="tp-link">Alerts</a>
-                            </li>
-
                         </ul>
                     </div>
                 </li>
 
                 <li>
-                    <a href="#sidebarMaps" data-bs-toggle="collapse">
-                        <i data-feather="map"></i>
-                        <span> Maps </span>
+                    <a href="#about" data-bs-toggle="collapse">
+                        <i data-feather="info"></i>
+                        <span>About</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarMaps">
+                    <div class="collapse" id="about">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="maps-google.html" class="tp-link">Google Maps</a>
+                                <a href="{{ route('about') }}" class="tp-link">About</a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="menu-title mt-2">General</li>
+
+                <li>
+                    <a href="#contact" data-bs-toggle="collapse">
+                        <i data-feather="mail"></i>
+                        <span> Contact </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="contact">
+                        <ul class="nav-second-level">
                             <li>
-                                <a href="maps-vector.html" class="tp-link">Vector Maps</a>
+                                <a href="{{ route('contact') }}" class="tp-link">Contact</a>
                             </li>
                         </ul>
                     </div>

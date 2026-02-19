@@ -108,4 +108,10 @@ class TestimonialController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Testimonial API
+    public function ApiAllTestimonials() {
+        $testimonial = Testimonial::latest()->get();
+        return $testimonial;
+    }
+
 }

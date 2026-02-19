@@ -92,5 +92,11 @@ class VideoController extends Controller
             'alert-type' => 'success'
         ]);
     }
+
+    // Video API
+    public function ApiAllVideos() {
+        $video = Video::latest()->get();
+        return $video;
+    }
 }
 

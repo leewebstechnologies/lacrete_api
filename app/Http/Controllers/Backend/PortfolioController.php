@@ -107,4 +107,10 @@ class PortfolioController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    // Portfolio API
+    public function ApiAllPortfolios() {
+        $portfolio = Portfolio::latest()->get();
+        return $portfolio;
+    }
 }

@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\HeroController;
 use App\Http\Controllers\Backend\PortfolioController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Backend\WelcomeController;
@@ -58,6 +61,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
    });
 
+       Route::controller(SiteSettingController::class)->group(function() {
+        Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+        Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');
+   });
+
    Route::controller(PortfolioController::class)->group(function() {
         Route::get('/all/portfolios', 'AllPortfolios')->name('all.portfolios');
         Route::get('/add/portfolio', 'AddPortfolio')->name('add.portfolio');
@@ -78,11 +86,20 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(BlogController::class)->group(function() {
         Route::get('/all/blogs', 'AllBlogs')->name('all.blogs');
-        Route::get('/add/welcome', 'AddWelcome')->name('add.welcome');
-        Route::post('/store/welcome', 'StoreWelcome')->name('store.welcome');
-        Route::get('/edit/welcome/{id}', 'EditWelcome')->name('edit.welcome');
-        Route::post('/update/welcome', 'UpdateWelcome')->name('update.welcome');
-        Route::get('/delete/welcome/{id}', 'DeleteWelcome')->name('delete.welcome');
+        Route::get('/add/blog', 'AddBlog')->name('add.blog');
+        Route::post('/store/blog', 'StoreBlog')->name('store.blog');
+        Route::get('/edit/blog/{id}', 'EditBlog')->name('edit.blog');
+        Route::post('/update/blog', 'UpdateBlog')->name('update.blog');
+        Route::get('/delete/blog/{id}', 'DeleteBlog')->name('delete.blog');
+   });
+
+    Route::controller(AboutController::class)->group(function() {
+        Route::get('/about', 'About')->name('about');
+        Route::post('/update/about', 'UpdateAbout')->name('update.about');
+   });
+
+   Route::controller(ContactController::class)->group(function() {
+    Route::get('/contact', 'Contact')->name('contact');
    });
 
 });

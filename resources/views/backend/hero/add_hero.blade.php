@@ -31,11 +31,6 @@
                                                 <input type="text" name="heading" class="form-control">
                                             </div>
 
-                                            <div class="col-md-6">
-                                                <label for="validationDefault01" class="form-label">Hero Link</label>
-                                                <input type="text" name="link" class="form-control">
-                                            </div>
-
                                             <div class="col-md-12">
                                                 <label for="validationDefault01" class="form-label">Hero Description</label>
                                                 <textarea class="form-control" name="description" placeholder="Required example textarea"></textarea>
